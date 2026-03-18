@@ -161,10 +161,11 @@ async function deleteDepartment(id) {
 function renderDepartmentList(departments) {
     deptListBody.innerHTML = ''; // 기존 목록 초기화
     if (!departments || departments.length === 0) {
-        deptListBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">표시할 부서가 없습니다.</td></tr>';
+        deptListBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">부서정보가 없습니다.</td></tr>';
         return;
     }
     departments.forEach(dept => {
+        //<tr> 엘리먼트 생성
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${dept.id}</td>
@@ -177,6 +178,7 @@ function renderDepartmentList(departments) {
         `;
         // '수정'과 '삭제' 버튼에 대한 원본 데이터를 저장
         row.querySelector('[data-action="edit"]').dataset.department = JSON.stringify(dept);
+        //<tr> 엘리먼트를 <tbody>에 추가
         deptListBody.appendChild(row);
     });
 }
@@ -282,7 +284,9 @@ function handleApiError(error) {
  * 페이지 로드 시 부서 목록을 가져와 렌더링합니다.
  */
 async function loadAndRenderDepartments() {
+    //departments 는 서버에 가져온 Json 
     const departments = await fetchAllDepartments();
+    //서버에 가져온 Json 데이터를 <tbody>아래에 <tr>엘리먼트를 동적으로 렌더링
     renderDepartmentList(departments);
 }
 
@@ -350,10 +354,12 @@ function handleListClick(e) {
 // ==================
 // 이벤트 리스너 연결
 // ==================
+//DOMContentLoaded 라는 이벤트를 처리한다
 document.addEventListener('DOMContentLoaded', () => {
     loadAndRenderDepartments(); // 페이지가 로드되면 바로 목록 조회
 
     deptForm.addEventListener('submit', handleFormSubmit);
+    //onclick="showTab('dept-section')
     searchDeptBtn.addEventListener('click', handleSearchById);
     deptListBody.addEventListener('click', handleListClick);
     deptCancelBtn.addEventListener('click', resetForm);

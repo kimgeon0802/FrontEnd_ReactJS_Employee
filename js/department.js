@@ -295,6 +295,7 @@ async function loadAndRenderDepartments() {
  * @param {Event} e - 폼 제출 이벤트
  */
 async function handleFormSubmit(e) {
+    //submit 이벤트가 처리 되지 않도록 
     e.preventDefault();
     const id = deptIdInput.value;
     const departmentData = {
@@ -326,7 +327,9 @@ async function handleSearchById() {
         showMessage('조회할 부서 ID를 입력해주세요.', true);
         return;
     }
+    //id로 fetch()함수 ajax 통신
     const department = await fetchDepartmentById(id);
+    //json 데이터를 렌더링
     renderDepartmentDetail(department);
 }
 
@@ -335,6 +338,7 @@ async function handleSearchById() {
  * @param {Event} e - 클릭 이벤트
  */
 function handleListClick(e) {
+    //e.target : 수정 또는 삭제 버튼
     const target = e.target;
     const action = target.dataset.action;
     const id = target.dataset.id;

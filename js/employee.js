@@ -309,7 +309,7 @@ function setupEmpEditForm(employee) {
 // ========================
 
 /**
- * 페이지 로드 시 직원 목록을 가져와 렌더링합니다.
+ * 페이지 로드 나 새로고침 버튼 클릭 시 직원 목록을 가져와 렌더링합니다.
  */
 async function loadAndRenderEmployees() {
     const employees = await fetchAllEmployees();

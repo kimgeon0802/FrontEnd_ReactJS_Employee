@@ -14,7 +14,7 @@ const deptFormTitle = document.getElementById('dept-form-title');
 const deptSubmitBtn = document.getElementById('dept-submit-btn');
 const deptCancelBtn = document.getElementById('dept-cancel-btn');
 
-const searchDeptIdInput = document.getElementById('search-dept-id');
+const searchDeptIdSelect = document.getElementById('search-dept-id');
 const searchDeptBtn = document.querySelector('#dept-section .card:nth-child(2) .btn-success');
 const deptDetailResult = document.getElementById('dept-detail-result');
 
@@ -280,13 +280,13 @@ async function loadAndRenderDepartments() {
  * @param {Array<object>} departments - 부서 데이터 배열
  */
 function populateSearchDepartmentDropdown(departments) {
-    searchDeptIdInput.innerHTML = '<option value="">조회할 부서를 선택하세요...</option>';
+    searchDeptIdSelect.innerHTML = '<option value="">조회할 부서를 선택하세요...</option>';
     if (departments && departments.length > 0) {
         departments.forEach(dept => {
             const option = document.createElement('option');
             option.value = dept.id;
             option.textContent = `${dept.departmentName} (ID: ${dept.id})`;
-            searchDeptIdInput.appendChild(option);
+            searchDeptIdSelect.appendChild(option);
         });
     }
 }
@@ -322,7 +322,7 @@ async function handleFormSubmit(e) {
  * ID로 부서 조회 버튼 클릭 이벤트를 처리합니다.
  */
 async function handleSearchById() {
-    const id = searchDeptIdInput.value;
+    const id = searchDeptIdSelect.value;
     if (!id) {
         showMessage('조회할 부서 ID를 입력해주세요.', true);
         return;

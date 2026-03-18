@@ -6,23 +6,35 @@ const API_BASE_URL = 'http://localhost:8080/api';
 // ===============
 // DOM 요소 캐싱
 // ===============
+//<form id="dept-form">
 const deptForm = document.getElementById('dept-form');
+//<input id="dept-id">
 const deptIdInput = document.getElementById('dept-id');
+//<input id="dept-name">
 const deptNameInput = document.getElementById('dept-name');
+//<input id="dept-desc">
 const deptDescInput = document.getElementById('dept-desc');
+//<h3 id="dept-form-title">
 const deptFormTitle = document.getElementById('dept-form-title');
+//<button type="submit" id="dept-submit-btn">
 const deptSubmitBtn = document.getElementById('dept-submit-btn');
+//<button type="button" id="dept-cancel-btn"
 const deptCancelBtn = document.getElementById('dept-cancel-btn');
-
+//<input type="number" id="search-dept-id">
 const searchDeptIdInput = document.getElementById('search-dept-id');
+//<button type="button" class="btn btn-success">조회
 const searchDeptBtn = document.querySelector('#dept-section .card:nth-child(2) .btn-success');
+//<div id="dept-detail-result">
 const deptDetailResult = document.getElementById('dept-detail-result');
-
+//<tbody id="dept-list">
 const deptListBody = document.getElementById('dept-list');
+//<div class="loading" id="dept-loading">
 const deptLoading = document.getElementById('dept-loading');
+//<button class="btn btn-info">새로고침
 const refreshBtn = document.querySelector('#dept-section .list-header .btn-info');
-
+//<div id="alert-success">성공메시지
 const alertSuccess = document.getElementById('alert-success');
+//<div id="alert-error">오류메시지
 const alertError = document.getElementById('alert-error');
 
 // =================

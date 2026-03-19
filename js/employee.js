@@ -418,8 +418,11 @@ async function initEmployeeTab() {
     searchEmpIdBtn.addEventListener('click', handleSearchEmpById);
     searchEmpEmailBtn.addEventListener('click', handleSearchEmpByEmail);
     
+    //수정이나 삭제버튼 클릭
     empListBody.addEventListener('click', handleEmpListClick);
+    //새로고침 버튼 클릭 ( empolyee 정보만 출력)
     empRefreshBtn.addEventListener('click', loadAndRenderEmployees);
+    //직원+부서조회 버튼 클릭
     empWithDeptBtn.addEventListener('click', loadAndRenderEmployeesWithDept);
     
     initEmployeeTab.initialized = true;

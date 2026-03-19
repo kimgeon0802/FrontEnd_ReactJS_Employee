@@ -283,6 +283,7 @@ function populateSearchDepartmentDropdown(departments) {
     searchDeptIdSelect.innerHTML = '<option value="">조회할 부서를 선택하세요...</option>';
     if (departments && departments.length > 0) {
         departments.forEach(dept => {
+            //<option value="1">HR (ID: 1)</option> 엘리먼트 생성
             const option = document.createElement('option');
             option.value = dept.id;
             option.textContent = `${dept.departmentName} (ID: ${dept.id})`;
